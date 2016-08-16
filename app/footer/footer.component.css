@@ -1,0 +1,76 @@
+.footerContainer {
+  background-color: #1a5880;
+  padding-top: 8em;
+  height: 500px;
+}
+
+.footerContainer ul {
+  list-style: none;
+}
+
+.footerContainer ul li {
+  border-top: 1px solid;
+  padding-top: 1em;
+  margin-bottom: 1em;
+  width: 80%;
+  border-top-color: rgba(255, 255, 255, 0.25);
+}
+
+.footerContainer ul li a,
+.FooterContactSection a {
+  cursor: pointer;
+  color: #1abc9c;
+  font-size: 16px;
+}
+
+.footerContainer ul li a:hover {
+  text-decoration: underline;
+  color: #1abc9c;
+}
+
+.FooterMenuection {
+  width: 30%;
+  float: left;
+  margin-left: 14em;
+}
+
+.FooterContactSection {
+  float: left;
+  width: 45%;
+}
+
+.footerMenu {
+  position: relative;
+  left: 40px;
+  font-size: 20px;
+  color: white;
+  padding-bottom: 1em;
+}
+
+.footerContactUs {
+  font-size: 20px;
+  color: white;
+  padding-bottom: 1em;
+}
+
+.footerEmail {
+  font-size: 16px;
+  color: #6d6d6d;
+}
+
+@media (max-width: 440px) {
+  .FooterContactSection {
+    float: left;
+    position: relative;
+    right: 20%;
+    top: 81%;
+  }
+
+  .FooterMenuection {
+    margin-left: 7em;
+  }
+
+  .footerContainer {
+    height: 600px;
+  }
+}
