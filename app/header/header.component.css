@@ -2,34 +2,3 @@
   height: 300px;
   width: 100%;
 }
-
-.headerText {
-  position: absolute;
-  color: white;
-  top: 115px;
-  left: 43.5%;
-  text-align: center;
-  font-size: 35px;
-}
-
-.headerTextContainer {
-  position: absolute;
-  padding: 3em 30em 3em 2em;
-  background-color: grey;
-  opacity: .7;
-  top: 95px;
-  left: 36%;
-}
-
-@media (max-width: 440px) {
-  .headerTextContainer {
-    padding: 3em 14em 3em 2em;
-    left: 23%;
-  }
-
-  .headerText {
-    top: 125px;
-    left: 30%;
-    font-size: 25px;
-  }
-}

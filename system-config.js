@@ -36,6 +36,7 @@ var barrels = [
     'app/events',
     'app/contact-us',
     'app/footer',
+    'app/header-banner',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {
