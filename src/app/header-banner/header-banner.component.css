@@ -1,0 +1,11 @@
+.bannerContainer {
+  height: 50px;
+  background-color: #949494;
+}
+
+.bannerText {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  padding-top: .1em;
+}
