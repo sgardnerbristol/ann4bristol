@@ -1,5 +1,5 @@
 .footerContainer {
-  background-color: #1a5880;
+  background-color: #949494;
   padding-top: 8em;
   height: 500px;
 }
@@ -19,13 +19,13 @@
 .footerContainer ul li a,
 .FooterContactSection a {
   cursor: pointer;
-  color: #1abc9c;
+  color: #1a5880;
   font-size: 16px;
 }
 
 .footerContainer ul li a:hover {
   text-decoration: underline;
-  color: #1abc9c;
+  color: #1a5880;
 }
 
 .FooterMenuection {

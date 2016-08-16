@@ -1,5 +1,5 @@
 .headerContainer {
-  background-color: #1a5880;
+  background-color: #949494;
   padding-top: 2em;
   height: 70px;
 }
@@ -22,7 +22,7 @@
 }
 
 .headerContainer .headerList li:hover {
-  background-color: #7ee6ff;
+  background-color: #1a5880;
 }
 
 .headerContainer .headerList li:hover a{
