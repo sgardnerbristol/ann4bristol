@@ -7,10 +7,13 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'angularfire2': 'vendor/angularfire2',
+  'firebase': 'vendor/firebase/firebase.js'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'angularfire2': 'angularfire2.js'
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,6 +47,10 @@ const barrels: string[] = [
   'app/contact-us',
   'app/footer',
   'app/header-banner',
+  'app/forms/contact-form',
+  'app/forms/login-form',
+  'app/login',
+  'app/forms/contact-us-form',
   /** @cli-barrel */
 ];
 

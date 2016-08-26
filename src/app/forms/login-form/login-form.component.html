@@ -1,0 +1,26 @@
+<div class="loginFormContainer">
+  <form [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text"
+             class="form-control"
+             id="username"
+             formControlName="username" #username>
+      <div *ngIf="loginForm.find('username').touched" class="validation-error">
+        <span class="validation-error" *ngIf="(loginForm.find('username').hasError('required'))">User name is required</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password"
+             class="form-control"
+             id="password"
+             formControlName="password" #password>
+      <div *ngIf="loginForm.find('password').touched" class="validation-error">
+        <span class="validation-error" *ngIf="(loginForm.find('password').hasError('required'))">Password is required</span>
+      </div>
+    </div>
+    <div *ngIf="wrongCredentials" class="validation-error invalidCredentials">Invalid Login Credentials</div>
+    <button type="submit" (click)="validateCredentials(username.value, password.value)" class="loginButton btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+  </form>
+</div>

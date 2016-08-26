@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ROUTER_DIRECTIVES} from "@angular/router";
+import {ROUTER_DIRECTIVES, Router} from "@angular/router";
 
 @Component({
   moduleId: module.id,
@@ -10,9 +10,20 @@ import {ROUTER_DIRECTIVES} from "@angular/router";
 })
 export class NavMenuComponent implements OnInit {
 
-  constructor() {}
+  private loggedIn: boolean;
+
+  constructor(private router: Router) {
+    if(localStorage.getItem('authh')) {
+      this.loggedIn = true;
+    }
+  }
 
   ngOnInit() {
   }
 
+  logout() {
+    localStorage.removeItem('authh');
+    this.loggedIn = false;
+    this.router.navigate(['']);
+  }
 }

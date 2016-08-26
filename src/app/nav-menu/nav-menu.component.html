@@ -18,6 +18,9 @@
     <li>
       <a [routerLink]="['contact-us']">Contact Us</a>
     </li>
+    <li *ngIf="loggedIn">
+      <button class="btn btn-primary" (click)="logout()">Logout</button>
+    </li>
   </ul>
   <div class="dropdown">
     <button class="fa fa-bars btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-hidden="true"></button>

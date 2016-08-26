@@ -9,10 +9,14 @@ import {ROUTER_DIRECTIVES} from "@angular/router";
   directives: [ROUTER_DIRECTIVES]
 })
 export class FooterComponent implements OnInit {
+	private footerDate = new Date();
 
   constructor() {}
 
   ngOnInit() {
+  }
+  goToTop(event){
+	  window.scrollTo(0,0);
   }
 
 }
