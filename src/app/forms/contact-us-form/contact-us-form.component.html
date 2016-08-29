@@ -22,24 +22,18 @@
     </div>
   <div class="form-group">
     <label for="options">Id like to: </label><br>
-    <div *ngFor="let option of options; let i = index">
-      <input type="checkbox" name="options" value="{{option}}" id="options" (change)="updateCheckedOptions(option, $event)">
-      <span>{{option}}</span><br>
-    </div>
-
-    <!--<input type="checkbox" id="hostSmallGathering" #hostSmallGathering>-->
-      <!--<span>Host a small Event</span><br>-->
-    <!--<input type="checkbox" id="askQuestion" #askQuestion>-->
-      <!--<span>Ask a question</span><br>-->
-    <!--<input type="checkbox" id="attendEvent" value="Attend a event" #attendEvent (change)="checkboxes[$event.target.getAttribute('value')]=$event.target.checked"/>-->
-     <!--<span>Attend a event</span><br>-->
-    <!--<input type="checkbox" id="helpFundraising" #helpFundraising>-->
-      <!--<span>Help with fundraising</span><br>-->
+    <input type="checkbox" value="Host a small Event" formControlName="check1" id="hostSmallGathering" #hostSmallGathering (change)="updateCheckedOptions(option, $event)">
+      <span>Host a small Event</span><br>
+    <input type="checkbox" formControlName="check2" id="askQuestion" #askQuestion (change)="updateCheckedOptions(option, $event)">
+      <span>Ask a question</span><br>
+    <input type="checkbox" formControlName="check3" id="attendEvent" value="Attend a event" #attendEvent (change)="updateCheckedOptions(option, $event)"/>
+     <span>Attend a event</span><br>
+    <input type="checkbox" formControlName="check4" id="helpFundraising" #helpFundraising (change)="updateCheckedOptions(option, $event)">
+      <span>Help with fundraising</span><br>
     <!--<div *ngIf="contactUsForm.find('email').touched" class="validation-error">-->
       <!--<span class="validation-error" *ngIf="(contactUsForm.find('email').hasError('required'))">Email is Required</span>-->
       <!--<span class="validation-error" *ngIf="(contactUsForm.find('email').hasError('pattern'))">Email is Invalid</span>-->
     <!--</div>-->
-  <span>{{checkboxes}}</span>
   </div>
     <div class="form-group">
       <label for="comment">Comment: </label>
@@ -53,6 +47,5 @@
       </div>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!contactUsForm.valid">Submit</button>
-  <span>{{currentOption}}</span><br>
 </form>
 

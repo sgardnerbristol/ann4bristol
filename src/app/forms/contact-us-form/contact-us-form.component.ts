@@ -15,15 +15,16 @@ import {
 export class ContactUsFormComponent implements OnInit {
   contactUsForm:FormGroup;
 
-  options = ['OptionA', 'OptionB', 'OptionC'];
+  options = ['Host a small Event', 'Ask a question', 'Attend a event', 'Help with fundraising'];
   optionsMap = {
-    OptionA: false,
-    OptionB: false,
-    OptionC: false,
+    host: false,
+    ask: false,
+    attend: false,
+    help: false
   };
   optionsChecked = [];
 
-  private currentOption: string;
+  optionstring: string;
 
   constructor(private formBuilder:FormBuilder) {
     this.contactUsForm = formBuilder.group({
@@ -37,10 +38,16 @@ export class ContactUsFormComponent implements OnInit {
         'comment': ['', [
           Validators.required,
           Validators.minLength(25)
+        ]],
+        'check1': ['', [
+        ]],
+        'check2': ['', [
+        ]],
+        'check3': ['', [
+        ]],
+        'check4': ['', [
         ]]
     });
-
-    this.initOptionsMap();
   }
 
   ngOnInit() {
@@ -52,36 +59,37 @@ export class ContactUsFormComponent implements OnInit {
     }
   }
 
-  updateOptions() {
-    for(var x in this.optionsMap) {
-      if(this.optionsMap[x]) {
-        this.optionsChecked.push(x);
+  updateCheckedOptions(option,event) {
+    if(event.target.checked){
+      if(this.optionsChecked.indexOf(event.target.value) == -1) {
+        this.optionsChecked.push(event.target.value);
       }
     }
-    this.options = this.optionsChecked;
-    this.optionsChecked = [];
-  }
-
-  updateCheckedOptions(option, event) {
-    for (var i=0; i<this.options.length;i++) {
-      if (this.options[i] == option) {
-        console.log("INSIDE"+i);
-        console.log("INSIDE"+this.options[i] + " "+option)
-        console.log("INSIDE"+this.optionsMap[i])
-        this.optionsMap[i] = event.target.checked = true;
+    else if(!event.target.checked) {
+      var index = this.optionsChecked.indexOf(event.target.value);
+      if (index > -1) {
+        this.optionsChecked.splice(index,1);
       }
-      else {
-        console.log(i);
-        this.optionsMap[i] = event.target.checked = false
-      }
-    }
-    // this.optionsMap[option] = event.target.checked;
-    if(event.target.checked) {
-      this.currentOption = option;
-      console.log(option);
     }
 
   }
 
+  onSubmit() {
+    this.optionstring = '';
+    if(this.contactUsForm.value.check1) {
+      this.optionstring += 'Host a small Event, '
+    }
+    if(this.contactUsForm.value.check2) {
+      this.optionstring += 'Ask a question, '
+    }
+    if(this.contactUsForm.value.check3) {
+      this.optionstring += 'Attend a event, '
+    }
+    if(this.contactUsForm.value.check4) {
+      this.optionstring += 'Help with fundraising, '
+    }
+    this.optionstring = this.optionstring.replace(/,\s*$/, "");
 
+    console.log(this.optionstring);
+  }
 }
