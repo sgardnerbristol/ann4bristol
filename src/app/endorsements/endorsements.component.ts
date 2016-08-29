@@ -8,15 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EndorsementsComponent implements OnInit {
 
-  private protectedResource: string;
-
-  constructor() {
-    if(localStorage.getItem('authh')) {
-      this.protectedResource = "CAN YOU SEE ME?";
-    }
-  }
+  constructor() {}
 
   ngOnInit() {
   }
-
 }

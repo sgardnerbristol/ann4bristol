@@ -51,6 +51,9 @@ const barrels: string[] = [
   'app/forms/login-form',
   'app/login',
   'app/forms/contact-us-form',
+  'app/services/auth',
+  'app/add-event',
+  'app/add-endorsement',
   /** @cli-barrel */
 ];
 

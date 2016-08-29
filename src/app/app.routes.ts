@@ -7,6 +7,8 @@ import {EndorsementsComponent} from "./endorsements/endorsements.component";
 import {EventsComponent} from "./events/events.component";
 import {ContactUsComponent} from "./contact-us/contact-us.component";
 import {LoginComponent} from "./login/login.component";
+import {AddEndorsementComponent} from "./add-endorsement/add-endorsement.component";
+import {AddEventComponent} from "./add-event/add-event.component";
 
 
 const APP_ROUTES: Routes = [
@@ -18,6 +20,8 @@ const APP_ROUTES: Routes = [
   { path: 'events', component: EventsComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'add-endorsement', component: AddEndorsementComponent },
+  { path: 'add-event', component: AddEventComponent }
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);

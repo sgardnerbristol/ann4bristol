@@ -5,26 +5,29 @@ import {
   FormBuilder,
 } from "@angular/forms";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   moduleId: module.id,
   selector: 'app-login-form',
   templateUrl: 'login-form.component.html',
-  styleUrls: ['login-form.component.css']
+  styleUrls: ['login-form.component.css'],
+  providers: [AuthService]
 })
 export class LoginFormComponent implements OnInit {
 
   private loginForm:FormGroup;
-  private username: string;
-  private password: string;
+  private loginError: boolean;
 
-  private wrongCredentials: boolean;
+  public wrongCredentials:boolean;
 
-  constructor(private formBuilder:FormBuilder, private router: Router) {
+  constructor(private formBuilder:FormBuilder, private authService: AuthService, private router: Router) {
+    this.loginError = false;
     this.wrongCredentials = false;
     this.loginForm = formBuilder.group({
-        'username': ['',[
+        'email': ['',[
           Validators.required,
+          Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
         ]],
         'password': ['', [
           Validators.required,
@@ -35,17 +38,16 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  validateCredentials(username: string, password: string) {
-        this.username = "asgardner13@cox.net";
-        this.password = "annistheworst1";
-
-        if(this.username == username && this.password == password) {
-          localStorage.setItem('authh', "TEST");
-          this.wrongCredentials = false;
-          this.router.navigate(['']);
-        }
-        else {
-          this.wrongCredentials = true;
-        }
+  onSignin() {
+    var t = this.authService.signinUser(this.loginForm.value);
+    t.then((res) => {
+      console.log(res);
+      if (res.provider === 4) {
+        this.wrongCredentials = false;
+        this.router.navigate(['']);
       }
+    }).catch((error) => {
+      this.wrongCredentials = true;
+    });
+  }
 }

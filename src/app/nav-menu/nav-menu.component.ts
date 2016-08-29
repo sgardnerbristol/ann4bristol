@@ -1,29 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import {ROUTER_DIRECTIVES, Router} from "@angular/router";
+import {AuthService} from "../services/auth/auth.service";
 
 @Component({
   moduleId: module.id,
   selector: 'app-nav-menu',
   templateUrl: 'nav-menu.component.html',
   styleUrls: ['nav-menu.component.css'],
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES],
+  providers: [AuthService]
 })
 export class NavMenuComponent implements OnInit {
 
-  private loggedIn: boolean;
-
-  constructor(private router: Router) {
-    if(localStorage.getItem('authh')) {
-      this.loggedIn = true;
-    }
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
   }
 
-  logout() {
-    localStorage.removeItem('authh');
-    this.loggedIn = false;
-    this.router.navigate(['']);
+  isAuth() {
+    return this.authService.isAuthenticated();
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 }

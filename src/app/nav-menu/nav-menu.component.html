@@ -18,8 +18,14 @@
     <li>
       <a [routerLink]="['contact-us']">Contact Us</a>
     </li>
-    <li *ngIf="loggedIn">
-      <button class="btn btn-primary" (click)="logout()">Logout</button>
+    <li *ngIf="isAuth()">
+      <a [routerLink]="['add-event']">Add Event</a>
+    </li>
+    <li *ngIf="isAuth()">
+      <a [routerLink]="['add-endorsement']">AddEndorsement</a>
+    </li>
+    <li *ngIf="isAuth()">
+      <button class="btn btn-primary" (click)="onLogout()">Logout</button>
     </li>
   </ul>
   <div class="dropdown">
@@ -42,6 +48,15 @@
       </li>
       <li>
         <a [routerLink]="['contact-us']">Contact Us</a>
+      </li>
+      <li *ngIf="isAuth()">
+        <a [routerLink]="['add-event']">Add Event</a>
+      </li>
+      <li *ngIf="isAuth()">
+        <a [routerLink]="['add-endorsement']">AddEndorsement</a>
+      </li>
+      <li *ngIf="isAuth()">
+        <button class="btn btn-primary" (click)="onLogout()">Logout</button>
       </li>
     </ul>
   </div>
